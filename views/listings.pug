@@ -1,0 +1,28 @@
+html 
+    head
+        title List Users
+    body 
+        h1 User Listings
+        a(href=`/createUser` ) Create User
+        a(href=`/userListing`) User Listings
+        table  
+            tr 
+                th ID 
+                th Name 
+                th Email 
+                th Age
+            each entry in userArray 
+                tr
+                    td= entry.userID   
+                    td= entry.name
+                    td= entry.email
+                    td= entry.age
+                    td  
+                        form(action=`/editUser/${entry.userID}` method="get") 
+                            input(type="submit" value="Edit")
+                    td  
+                        form(action=`/deleteUser/${entry.userID}` method='post')
+                            input(type='submit' value="Delete")
+
+                    
+                
