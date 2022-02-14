@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  testWebsite:
+    image: myapp:latest
+    ports:
+      - 3000:3000
+    deploy:
+      replicas: 3
+  testWebsite2:
+    image: myapp:latest
+    ports:
+      - 3001:3000
+    deploy:
+      replicas: 2

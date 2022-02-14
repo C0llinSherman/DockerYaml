@@ -1,8 +1,11 @@
-<!-- Build Image -->
-docker build -t myapp:latest . 
+<!-- Deploy Stack -->
+docker stack deploy -c docker-compose.yaml myapp-stack
 
-<!-- Docker Run Command -->
-docker run -d --name test -p 8080:3000 myapp:latest
+<!-- Scale Out Service 1 -->
+docker service scale myapp-stack_testWebsite=7
 
-<!-- URL -->
-localhost:8080
+<!-- Scale In Service 1 -->
+docker service scale myapp-stack_testWebsite=2
+
+<!-- Remove Stack -->
+docker stack rm myapp-stack
